@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ao.sleepquality
+package com.ao.sleepquality.utils
 
 import android.annotation.SuppressLint
 import android.content.res.Resources
@@ -22,6 +22,7 @@ import android.os.Build
 import android.text.Html
 import android.text.Spanned
 import androidx.core.text.HtmlCompat
+import com.ao.sleepquality.R
 import com.ao.sleepquality.database.SleepNight
 import java.text.SimpleDateFormat
 
@@ -87,7 +88,10 @@ fun formatNights(nights: List<SleepNight>, resources: Resources): Spanned {
                 append(resources.getString(R.string.end_time))
                 append("\t${convertLongToDateString(it.endTimeMilli)}<br>")
                 append(resources.getString(R.string.quality))
-                append("\t${convertNumericQualityToString(it.sleepQuality, resources)}<br>")
+                append("\t${convertNumericQualityToString(
+                    it.sleepQuality,
+                    resources
+                )}<br>")
                 append(resources.getString(R.string.hours_slept))
                 // Hours
                 append("\t ${it.endTimeMilli.minus(it.startTimeMilli) / 1000 / 60 / 60}:")
