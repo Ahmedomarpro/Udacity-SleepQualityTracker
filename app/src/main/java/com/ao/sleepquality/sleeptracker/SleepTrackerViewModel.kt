@@ -128,9 +128,8 @@ class SleepTrackerViewModel(val database: SleepDatabaseDao, application: Applica
     private suspend fun getTonightFromDatabase(): SleepNight? {
         return withContext(Dispatchers.IO) {
             var night = database.getTonight()
-            if (night.endTimeMilli != night.startTimeMilli) {
-                night = null!!
-                //********************************************
+            if (night?.endTimeMilli != night?.startTimeMilli) {
+                night = null
             }
             night
         }
