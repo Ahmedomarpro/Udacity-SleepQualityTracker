@@ -2,16 +2,17 @@
 <layout xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
-
     <data>
 
+        <variable
+            name="sleepQualityViewModel"
+            type="com.ao.sleepquality.sleepquality.SleepQualityViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".com.ao.sleepquality.SleepQualityFragment"
-        >
+         >
 
         <TextView
             android:id="@+id/title_text"

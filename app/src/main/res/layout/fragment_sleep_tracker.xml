@@ -16,8 +16,7 @@
         android:id="@+id/frameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".com.ao.sleepquality.SleepTrackerFragment">
-
+>
         <!-- TODO: Update blank fragment layout -->
         <ScrollView
             android:layout_width="match_parent"
