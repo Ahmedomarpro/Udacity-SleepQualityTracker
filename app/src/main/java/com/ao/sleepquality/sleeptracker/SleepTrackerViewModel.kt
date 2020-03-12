@@ -16,7 +16,7 @@ class SleepTrackerViewModel(val database: SleepDatabaseDao, application: Applica
     /**
      * viewModelJob allows us to cancel all coroutines started by this ViewModel.
      */
-    private val viewModelJob = Job()
+    private var viewModelJob = Job()
 
     /**
      * A [CoroutineScope] keeps track of all coroutines started by this ViewModel.

@@ -5,9 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.ao.sleepquality.database.dao.SleepDatabaseDao
-import java.time.Instant
 
-@Database(entities = [SleepNight::class], version = 1, exportSchema = false)
+@Database(entities = [SleepNight::class], version = 2, exportSchema = false)
 abstract class SleepDatabase : RoomDatabase() {
     /**
      * Connects the database to the DAO.
@@ -25,7 +24,7 @@ abstract class SleepDatabase : RoomDatabase() {
 
 
         @Volatile
-        private var INSTANCE_batabse: SleepDatabase? = null
+        private var INSTANCE: SleepDatabase? = null
 
         /**
          * Helper function to get the database.
@@ -49,7 +48,7 @@ abstract class SleepDatabase : RoomDatabase() {
             // it once by using synchronized. Only one thread may enter a synchronized block at a
             // time.
             synchronized(this) {
-                var instant = INSTANCE_batabse
+                var instant = INSTANCE
                 if (instant == null) {
                     instant = Room.databaseBuilder(
                         context.applicationContext,
@@ -60,7 +59,7 @@ abstract class SleepDatabase : RoomDatabase() {
                         .build()
                     // Assign INSTANCE to the newly created database.
 
-                    INSTANCE_batabse = instant
+                    INSTANCE = instant
 
                 }
                 // Return instance; smart cast to be non-null.
